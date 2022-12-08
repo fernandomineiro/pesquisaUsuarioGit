@@ -1,0 +1,7 @@
+<label>Username</label>
+<form [formGroup]="git" (ngSubmit)="save()">
+  <div className="input-container">
+    <input formControlName="username" id="usernameInput" type="text" />
+  </div>
+  <button type="submit">Pesquisa</button>
+</form>
