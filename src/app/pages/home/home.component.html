@@ -1,7 +1,33 @@
+<div *ngIf="!page">
 <label>Username</label>
-<form [formGroup]="git" (ngSubmit)="save()">
+<form [formGroup]="git" (ngSubmit)="search()">
   <div className="input-container">
     <input formControlName="username" id="usernameInput" type="text" />
   </div>
   <button type="submit">Pesquisa</button>
 </form>
+</div>
+
+<div *ngIf="page" class="board">
+    <h1>{{this.data.email}}</h1>
+    <div class="bio">
+        <img [src]="this.data.avatar_url" class="rounded-circle" alt="Cinque Terre">  
+        <span>{{this.data.name}}</span>
+        {{this.data.login}}
+    </div>
+    <div class="infos">
+        <div (click)="repo()">
+            
+            <span>{{this.data.public_repos}} Repositorios</span>
+        </div>
+        <div (click)="exit()">
+           
+            <span>{{this.data.followers}} Seguidores</span>
+        </div>
+        <div (click)="exit()">
+            <span>{{this.data.following}} Seguindo</span>
+        </div>
+    </div>
+    <button type="button" (click)="exit()" class="btn">Voltar</button>
+</div>
+
