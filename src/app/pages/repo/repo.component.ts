@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GitService } from 'src/app/shared/services/git.service';
-import { Git } from 'src/app/shared/models/git';
+import { Repo } from 'src/app/shared/models/repo';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-repo',
@@ -9,22 +10,31 @@ import { Git } from 'src/app/shared/models/git';
 })
 export class RepoComponent {
 
-  data: Git;
-
   constructor(
-
+    private route:ActivatedRoute,
     public apiService: GitService,
   ) { 
-    this.data = new Git();
+   
   }
 
+  data: any[] | undefined;
+  routeUrl: any;
+  
   ngOnInit() {
+ 
+    this.routeUrl = this.route.snapshot.paramMap.get('user');
+    console.log(this.routeUrl);
     this.getRepo();
   }
 
   getRepo(){
-    this.apiService.getRepoGit('fernandomineiro').subscribe((response) => {
-      console.log(response)
+    this.apiService.getRepoGit(this.routeUrl).subscribe((response) => {
+      this.data = response
+
+    this.data = response.sort((a:any,b:any) => (b.forks_stargazers_count
+ > a.forks_stargazers_count) ? 1 : ((a.forks_stargazers_count > b.forks_stargazers_count) ? -1 : 0))
+ 
+ console.log(this.data)
     });
   }
 }

@@ -1,25 +1,34 @@
-<div class="block">
-    <ul>    
-            <li> //id
-                    <h1>repo.name</h1>
-                    <div class="desc-link">
-                        <span>
-                            repo.description
-                        </span>
+
+<button type="button" routerLink='' class="btn">Voltar</button>
+
+<div class="row"  *ngFor="let item of data">
+    <div class="col-md-6">
+        <div class="well well-sm">
+            <div class="row">
+                
+                <div class="col-xs-9 col-md-9 section-box">
+                    <h2>
+                        {{item.name}} 
+                    </h2>
+                    <p>
                         <a
-                            href=repo.html_url
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                           
-                        </a>
+                        [href]=item.html_url
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                       Ver projeto? clique aqui!</a></p>
+                    <hr />
+                    <div class="row rating-desc">
+                        <div class="col-md-12">
+                            <span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart">
+                            </span><span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart">
+                            </span><span class="glyphicon glyphicon-heart"></span>{{item.forks_count}} Forks<span class="separator">|</span>
+                            <span class="glyphicon glyphicon-comment"></span>{{item.stargazers_count}} Estrelas
+                        </div>
                     </div>
-                    <div class="fork-star">
-                         repo.forks_count
-                       repo.stargazers_count
-                    </div>
-                </li>
-            
-      
-    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

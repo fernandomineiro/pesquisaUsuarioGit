@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Git } from '../models/git';
+import { Repo } from '../models/repo';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
@@ -42,9 +43,9 @@ export class GitService {
       )
   }
 
-  getRepoGit(user: any): Observable<Git> {
+  getRepoGit(user: any): Observable<any> {
     return this.http
-      .get<Git>(this.base_path + '/users/' + user+ '/repos', this.httpOptions)
+      .get<any>(this.base_path + '/users/' + user+ '/repos', this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError)

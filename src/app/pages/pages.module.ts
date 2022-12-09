@@ -6,11 +6,14 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RepoComponent } from './repo/repo.component';
+import { FallowersComponent } from './fallowers/fallowers.component';
+
 
 @NgModule({
   declarations: [
     HomeComponent,
-    RepoComponent
+    RepoComponent,
+    FallowersComponent
   ],
   imports: [
     CommonModule,

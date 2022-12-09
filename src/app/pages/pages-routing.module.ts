@@ -5,7 +5,7 @@ import { RepoComponent } from './repo/repo.component';
 
 const routes: Routes = [
   { path : '', component : HomeComponent},
-  { path : 'repositorios', component : RepoComponent},
+  { path : 'repo/:user', component : RepoComponent},
 ];
 
 @NgModule({

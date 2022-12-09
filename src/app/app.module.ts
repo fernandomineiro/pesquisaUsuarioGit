@@ -4,18 +4,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
-import { RepoComponent } from './shared/models/repo/repo.component';
 
+import { CommonModule } from '@angular/common'
 
 @NgModule({
   declarations: [
     AppComponent,
-    RepoComponent
   ],
   imports: [
     BrowserModule,
     PagesModule,
     AppRoutingModule,
+    CommonModule
 
   ],
   providers: [],
